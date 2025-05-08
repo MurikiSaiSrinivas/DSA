@@ -4,20 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        prefix_arr = []
-        suffix_arr = [1] * len(nums)
-        result = [1] * len(nums)
+        n = len(nums)
+        result = [1] * n
 
         prefix = 1
-        for num in nums:
-            prefix_arr.append(prefix)
-            prefix *= num
+        for i in range(n):
+            result[i] = prefix
+            prefix *= nums[i]
         
         suffix = 1
-        for index in range(len(nums)-1, -1, -1):
-            suffix_arr[index] = suffix
-            suffix *= nums[index]
+        for i in range(n-1, -1, -1):
+            result[i] *= suffix
+            suffix *= nums[i]
         
-        for i in range(len(nums)):
-            result[i] = prefix_arr[i] * suffix_arr[i]
         return result
