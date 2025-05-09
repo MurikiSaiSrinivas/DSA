@@ -5,7 +5,6 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         intervals = sorted(intervals)
-        print(intervals)
         i = 0
         while i < len(intervals)-1:
             if intervals[i][1] >= intervals[i+1][0]:
