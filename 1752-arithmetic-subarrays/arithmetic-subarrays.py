@@ -6,12 +6,14 @@ class Solution:
             new_sorted_array = sorted(nums[l[i]: r[i]+1])
 
             value_change = new_sorted_array[1] - new_sorted_array[0]
-            holder = True
+            # holder = True
 
             for num_index in range(len(new_sorted_array)-1):
                 if new_sorted_array[num_index+1] - new_sorted_array[num_index] != value_change:
-                    holder =False
+                    # holder =False
+                    result.append(False)
                     break
-                    
-            result.append(holder)
+            else:
+                result.append(True)
+            # result.append(holder)
         return result
