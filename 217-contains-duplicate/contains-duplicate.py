@@ -1,13 +1,9 @@
-class Solution(object):
-    def containsDuplicate(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-        freqMap = collections.defaultdict(int)
-        for i in nums:
-            freqMap[i] += 1
-            if freqMap[i] == 2:
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        seen_set = set()
+        for num in nums:
+            if num in seen_set:
                 return True
+            seen_set.add(num)
         return False
         
